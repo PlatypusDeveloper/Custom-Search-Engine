@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Search</title>
+</head>
+<body>
+  <form id="searchForm">
+    <input type="text" id="searchQuery" name="q" placeholder="Enter your search query">
+    <button type="button" onclick="submitForm()">Search</button>
+  </form>
+
+  <script>
+    function submitForm() {
+      var query = document.getElementById('searchQuery').value;
+      var encodedQuery = encodeURIComponent(query);
+      var searchUrl = 'https://www.google.com/search?q=' + encodedQuery;
+
+      // Redirect to Google search URL
+      window.location.href = searchUrl;
+    }
+  </script>
+</body>
+</html>
