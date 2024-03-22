@@ -6,19 +6,22 @@
   <title>Custom Search</title>
 </head>
 <body>
-  <form id="searchForm">
+  <form id="searchForm" onsubmit="return redirectToSearchEngine()">
     <input type="text" id="searchQuery" name="q" placeholder="Enter your search query">
-    <button type="button" onclick="submitForm()">Search</button>
+    <button type="submit">Search</button>
   </form>
 
   <script>
-    function submitForm() {
+    function redirectToSearchEngine() {
       var query = document.getElementById('searchQuery').value;
       var encodedQuery = encodeURIComponent(query);
       var searchUrl = 'https://www.google.com/search?q=' + encodedQuery;
 
-      // Redirect to Google search URL
+      // Redirect to the search engine URL
       window.location.href = searchUrl;
+
+      // Prevent the form from submitting
+      return false;
     }
   </script>
 </body>
